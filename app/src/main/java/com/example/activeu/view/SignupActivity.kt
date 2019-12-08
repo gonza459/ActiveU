@@ -6,16 +6,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextWatcher
 import android.text.Editable
+import android.util.Log
 import android.view.View
 import com.example.activeu.R
 import com.example.activeu.model.User
+import com.example.activeu.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_signup.*
 import kotlinx.android.synthetic.main.activity_start.*
 import java.util.*
 
 class SignupActivity : AppCompatActivity() {
-    //private lateinit var profileViewModel: ProfileViewModel
+    private lateinit var userViewModel: UserViewModel
     private var password: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,11 +32,33 @@ class SignupActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {}
         })
 
-        signup_button.setOnClickListener{
+        signup_button.setOnClickListener {
 
-            intent = Intent(this, SignupActivity::class.java)
-            startActivity(intent)
+            userViewModel.getUserPassword("${Username.text}Password").observe(this,
+                androidx.lifecycle.Observer { getPass(it) })
+
+            Log.d("user", "password: ${password}")
+            if (password == null) {
+                errorMessage.text = "Username taken"
+            } else if (password == Password.text.toString()) {
+                errorMessageSU.text = "This account already exists"
+            } else {
+                userViewModel.setUserPassword(
+                    Username.text.toString(),
+                    Password.text.toString()
+                )
+                startActivity(Intent(this, MainActivity::class.java).apply {
+                    putExtra(
+                        "username",
+                        Username.text
+                    )
+                })
+            }
         }
+    }
+
+        private fun getPass(pass: String){
+            password = pass
 
     }
 }

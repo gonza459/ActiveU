@@ -10,7 +10,7 @@ import java.util.*
 class UserViewModel(application: Application) : AndroidViewModel(application) {
     private val repository = UserRepository(application.applicationContext)
 
-    fun setUserProfilePass(name: String, pass: String) = repository.setUserProfilePass(name, pass)
+    fun setUserPassword(name: String, pass: String) = repository.setUserProfilePass(name, pass)
 
     fun setUserSleep(name: String, sleep: Boolean) = repository.setUserSleep(name, sleep)
 
@@ -23,7 +23,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     fun setUserExercise(name: String, exercise: Boolean) = repository.setUserExercise(name, exercise)
 
 
-    fun getUserProfilePass(name: String) = repository.getUserProfilePass(name)
+    fun getUserPassword(name: String) = repository.getUserProfilePass(name)
 
     fun getUserSleep(name: String) = repository.getUserSleep(name)
 

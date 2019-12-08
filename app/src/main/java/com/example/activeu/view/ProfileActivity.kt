@@ -13,11 +13,11 @@ import java.util.*
 class ProfileActivity : AppCompatActivity() {
     private lateinit var userViewModel: UserViewModel
     private var user: String = ""
-    private var sleep: Boolean = false
-    private var eating: Boolean = false
-    private var organize: Boolean = false
-    private var quit: Boolean = false
-    private var exercise: Boolean = false
+    private var sleepMore: Boolean = false
+    private var betterEating: Boolean = false
+    private var organizeMore: Boolean = false
+    private var quitSmoking: Boolean = false
+    private var exerciseMore: Boolean = false
 
     private fun getUserName() = intent.extras?.get("username").toString().trim()
 
@@ -27,9 +27,9 @@ class ProfileActivity : AppCompatActivity() {
 
         userViewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
         userViewModel.getUserSleep("${getUserName()}Sleep 8+ hrs").observe(this,
-            androidx.lifecycle.Observer {updateSleep(it)})
+            androidx.lifecycle.Observer {updateProfileSleep(it)})
         userViewModel.getUserHealth("${getUserName()}Better Eating Habits").observe(this,
-            androidx.lifecycle.Observer {updateHealth(it)})
+            androidx.lifecycle.Observer {updateProfileHealth(it)})
         userViewModel.getUserOrganize("${getUserName()}Be More Organized").observe(this,
             androidx.lifecycle.Observer {updateProfileOrganize(it)})
         userViewModel.getUserQuit("${getUserName()}Quit Smoking").observe(this,
@@ -37,44 +37,78 @@ class ProfileActivity : AppCompatActivity() {
         userViewModel.getUserExercise("${getUserName()}Exercise More").observe(this,
             androidx.lifecycle.Observer {updateProfileExercise(it)})
 
-        saveButton.setOnClickListener {
-            if(sleep.isChecked){
-                sleep = true
-                userViewModel.setUserSleep(getUserName(), sleep)
-            }else{
-                profileViewModel.setUserProfileDairy(getUserName(), false)
-            }
-
-            if(veggie.isChecked){
-                isVeggies = true
-                profileViewModel.setUserProfileVeggie(getUserName(), isVeggies)
-            }else{
-                profileViewModel.setUserProfileVeggie(getUserName(), false)
-            }
-
-            if(vegan.isChecked){
-                isVegans = true
-                profileViewModel.setUserProfileVegan(getUserName(), isVegans)
-            }else{
-                profileViewModel.setUserProfileVegan(getUserName(), false)
-            }
-
-            if(gluten.isChecked){
-                isGlutens = true
-                profileViewModel.setUserProfileGluten(getUserName(), isGlutens)
-            }else{
-                profileViewModel.setUserProfileGluten(getUserName(), false)
-            }
-
-
-            user = getUserName()
+        user = getUserName()
         username.text = "User: ${user.toString()}"
 
+        saveButton.setOnClickListener {
+            if (sleep.isChecked) {
+                sleepMore = true
+                userViewModel.setUserSleep(getUserName(), sleepMore)
+            } else {
+                userViewModel.setUserSleep(getUserName(), false)
+            }
+
+            if (health.isChecked) {
+                betterEating = true
+                userViewModel.setUserHealth(getUserName(), betterEating)
+            } else {
+                userViewModel.setUserHealth(getUserName(), false)
+            }
+
+            if (organize.isChecked) {
+                organizeMore = true
+                userViewModel.setUserOrganize(getUserName(), organizeMore)
+            } else {
+                userViewModel.setUserOrganize(getUserName(), false)
+            }
+
+            if (quit.isChecked) {
+                quitSmoking = true
+                userViewModel.setUserQuit(getUserName(), quitSmoking)
+            } else {
+                userViewModel.setUserQuit(getUserName(), false)
+            }
+
+            if (exercise.isChecked) {
+                exerciseMore = true
+                userViewModel.setUserExercise(getUserName(), exerciseMore)
+            } else {
+                userViewModel.setUserExercise(getUserName(), false)
+            }
+        }
+
     }
-    private fun updateSleep(betterSleep: Boolean) {
-        sleep = betterSleep
-        if (sleep) {
+
+    private fun updateProfileSleep(betterSleep: Boolean) {
+        sleepMore = betterSleep
+        if (sleepMore) {
             sleep.setChecked(true)
+        }
+    }
+    private fun updateProfileHealth(betterHealth: Boolean) {
+        betterEating = betterHealth
+        if (betterEating) {
+            health.setChecked(true)
+        }
+    }
+
+    private fun updateProfileOrganize(organizeBetter: Boolean) {
+        organizeMore = organizeBetter
+        if (organizeMore) {
+            organize.setChecked(true)
+        }
+    }
+
+    private fun updateProfileQuit(NoSmoking: Boolean) {
+        quitSmoking = NoSmoking
+        if (quitSmoking) {
+            quit.setChecked(true)
+        }
+    }
+    private fun updateProfileExercise(betterExercise: Boolean) {
+        exerciseMore = betterExercise
+        if (exerciseMore) {
+            exercise.setChecked(true)
         }
     }
 

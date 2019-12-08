@@ -17,7 +17,7 @@ class UserRepository(context: Context) {
     }
 
     //function to set the user count in storage
-    fun setUserProfilePass(name: String, password: String) {
+    fun setUserPassword(name: String, password: String) {
         preferences.edit().putString("${name}Password", password).apply()
     }
 
