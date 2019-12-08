@@ -1,15 +1,17 @@
 package com.example.activeu.view
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.activeu.R
 import com.example.activeu.model.User
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_start.*
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class StartActivity : AppCompatActivity() {
     fun getStore() = getPreferences(Context.MODE_PRIVATE)
     //private lateinit var UserViewModel: UserViewModel
     private var user: String = ""
@@ -19,14 +21,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_start)
 
-        val usrname = intent.extras?.get("username").toString().trim()
-        UserKey = usrname
+        login_button.setOnClickListener{
 
-       // UserViewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
-        //UserViewModel.getUserCount((getUserName())).observe(this,
-         //   androidx.lifecycle.Observer { updateCounter(it) })
+            intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+        signup_button.setOnClickListener{
+
+            intent = Intent(this, SignupActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }

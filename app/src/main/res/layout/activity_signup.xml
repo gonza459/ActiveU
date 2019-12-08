@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:gravity="center"
+    tools:context=".view.StartActivity">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="match_parent"
 
-        android:scaleType="fitStart"
-        android:src="@drawable/new_you_background" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/new_you_resolution_signup" />
 
     <TextView
         android:id="@+id/Username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/loginUsernameField"
+        android:layout_above="@+id/UsernameField"
         android:layout_gravity="center_horizontal|center_vertical"
         android:layout_marginBottom="80dp"
         android:background="#39000000"
@@ -30,7 +31,7 @@
         android:textSize="24sp" />
 
     <EditText
-        android:id="@+id/loginUsernameField"
+        android:id="@+id/UsernameField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center_vertical"
@@ -70,19 +71,17 @@
 
         />
 
-    <ImageButton
+    <Button
         android:id="@+id/loginButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/loginUsernameField"
+        android:layout_width="152dp"
+        android:layout_height="71dp"
+        android:layout_below="@id/UsernameField"
 
         android:layout_gravity="center_horizontal|center_vertical"
 
-        android:background="#AA000000"
+        android:layout_marginBottom="-280dip"
+        android:background="#00000000"
         android:padding="12dip"
-        android:layout_marginBottom="-80dip"
-
-        android:src="@drawable/floral_arrow"
         android:textColor="#997379" />
 
 
