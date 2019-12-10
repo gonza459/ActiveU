@@ -15,24 +15,17 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        loginUsernameField.addTextChangedListener(object : TextWatcher{
-            override fun afterTextChanged(p0: Editable?){
-
-            }
-
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int){
-
-            }
-
-            override fun onTextChanged(p0: CharSequence?,p1: Int, p2: Int, p3: Int ){
-
-            }
+        usernameField.addTextChangedListener(object : TextWatcher{
+            override fun afterTextChanged(p0: Editable?){}
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int){}
+            override fun onTextChanged(p0: CharSequence?,p1: Int, p2: Int, p3: Int ){}
 
 
         })
 
         login_button.setOnClickListener{
-            startActivity(Intent(this, MainActivity::class.java).apply{putExtra("username", loginUsernameField.text)})
+            startActivity(Intent(this, MainActivity::class.java).apply{
+                putExtra("username", usernameField.text)})
         }
 
 

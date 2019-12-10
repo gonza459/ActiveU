@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
 
         android:scaleType="centerCrop"
-        android:src="@drawable/new_you_login" />
+        android:src="@drawable/start" />
 
     <Button
         android:id="@+id/login_button"
@@ -27,7 +27,9 @@
         android:padding="12dip"
         app:layout_constraintBottom_toBottomOf="@+id/signup_button"
 
-        />
+        android:text="LOGIN"
+        android:textColor="@color/hype_white"
+        android:textSize="20dp"/>
 
     <Button
         android:id="@+id/signup_button"
@@ -42,7 +44,11 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_button"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="SIGN UP"
+        android:textColor="@color/hype_white"
+        android:textSize="20dp"/>
+
 
 
 </merge>

@@ -12,158 +12,13 @@
         android:layout_height="match_parent"
 
         android:scaleType="centerCrop"
-        android:src="@drawable/new_you_background" />
-
-    <ImageButton
-        android:id="@+id/addSleepButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-
-        android:layout_gravity="center_horizontal|left|center_vertical"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="80dip"
-        android:background="#00000000"
-        android:cropToPadding="false"
-        android:fitsSystemWindows="false"
-        android:padding="12dip"
-        android:scaleType="fitCenter"
-        android:src="@drawable/new_you_add" />
-
-    <ImageButton
-        android:id="@+id/subSleepButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-
-        android:layout_gravity="center_horizontal|left|center_vertical"
-        android:layout_marginBottom="-130dip"
-        android:background="#00000000"
-        android:cropToPadding="false"
-        android:fitsSystemWindows="false"
-        android:padding="12dip"
-        android:scaleType="fitCenter"
-        android:src="@drawable/new_you_sub" />
-
-    <ImageButton
-        android:id="@+id/addHealthButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-
-        android:layout_gravity="center_horizontal|left|center_vertical"
-        android:layout_marginLeft="80dp"
-        android:layout_marginBottom="170dp"
-        android:background="#00000000"
-        android:cropToPadding="false"
-        android:fitsSystemWindows="false"
-        android:padding="12dip"
-        android:scaleType="fitCenter"
-        android:src="@drawable/new_you_add" />
-
-    <ImageButton
-        android:id="@+id/subHealthButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-
-        android:layout_gravity="center_horizontal|left|center_vertical"
-        android:layout_marginLeft="80dp"
-        android:layout_marginBottom="-50dip"
-        android:background="#00000000"
-        android:cropToPadding="false"
-        android:fitsSystemWindows="false"
-        android:padding="12dip"
-        android:scaleType="fitCenter"
-        android:src="@drawable/new_you_sub" />
-
-    <ImageButton
-        android:id="@+id/addOrgButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:layout_marginBottom="80dip"
-        android:background="#00000000"
-        android:cropToPadding="false"
-        android:fitsSystemWindows="false"
-        android:padding="12dip"
-        android:scaleType="fitCenter"
-        android:src="@drawable/new_you_add" />
-
-    <ImageButton
-        android:id="@+id/subOrgButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:layout_marginBottom="-130dip"
-        android:background="#00000000"
-        android:cropToPadding="false"
-        android:fitsSystemWindows="false"
-        android:padding="12dip"
-        android:scaleType="fitCenter"
-        android:src="@drawable/new_you_sub" />
-
-    <ImageButton
-        android:id="@+id/addQuitButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:layout_marginLeft="80dp"
-        android:layout_marginBottom="170dp"
-        android:background="#00000000"
-        android:cropToPadding="false"
-        android:fitsSystemWindows="false"
-        android:padding="12dip"
-        android:scaleType="fitCenter"
-        android:src="@drawable/new_you_add" />
-
-    <ImageButton
-        android:id="@+id/subQuitButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:layout_marginLeft="80dp"
-        android:layout_marginBottom="-50dip"
-        android:background="#00000000"
-        android:cropToPadding="false"
-        android:fitsSystemWindows="false"
-        android:padding="12dip"
-        android:scaleType="fitCenter"
-        android:src="@drawable/new_you_sub" />
-
-    <ImageButton
-        android:id="@+id/addExerciseButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-
-        android:layout_gravity="right|center_horizontal|center_vertical"
-        android:layout_marginBottom="80dip"
-        android:background="#00000000"
-        android:cropToPadding="false"
-        android:fitsSystemWindows="false"
-        android:padding="12dip"
-        android:scaleType="fitCenter"
-        android:src="@drawable/new_you_add" />
-
-    <ImageButton
-        android:id="@+id/subExerciseButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-
-        android:layout_gravity="right|center_horizontal|center_vertical"
-        android:layout_marginBottom="-130dip"
-        android:background="#00000000"
-        android:cropToPadding="false"
-        android:fitsSystemWindows="false"
-        android:padding="12dip"
-        android:scaleType="fitCenter"
-        android:src="@drawable/new_you_sub" />
+        app:srcCompat="@drawable/main" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="246dp"
-        android:layout_height="100dp"
+        android:layout_height="25dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_gravity="bottom|center_horizontal|center_vertical"
@@ -171,10 +26,93 @@
         android:layout_marginBottom="50dp"
         android:background="#0000"
         android:indeterminate="false"
-        android:max="5"
+        android:max="7"
+        android:min="0"
         android:minWidth="200dp"
         android:minHeight="100dp"
         android:progress="0" />
+
+    <CheckBox
+        android:id="@+id/sleepCheckBox"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom|center_horizontal|center_vertical"
+        android:layout_marginBottom="150dp"
+        android:text="8+ hours of sleep"
+        android:textColor="@color/hype_white"/>
+
+    <CheckBox
+        android:id="@+id/planCheckBox"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom|center_horizontal|center_vertical"
+        android:layout_marginBottom="200dp"
+        android:text="Plan out your day"
+        android:textColor="@color/hype_white"/>
+
+    <CheckBox
+        android:id="@+id/alarmCheckBox"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom|center_horizontal|center_vertical"
+        android:layout_marginBottom="250dp"
+        android:textColor="@color/hype_white"
+        android:text="Get up when your alarm goes off" />
+
+    <CheckBox
+        android:id="@+id/makeBedCheckBox"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom|center_horizontal|center_vertical"
+        android:layout_marginBottom="300dp"
+        android:textColor="@color/hype_white"
+        android:text="Make your bed" />
+
+    <CheckBox
+        android:id="@+id/threeMealsCheckBox"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom|center_horizontal|center_vertical"
+        android:layout_marginBottom="350dp"
+        android:textColor="@color/hype_white"
+        android:text="3 meals today" />
+
+    <CheckBox
+        android:id="@+id/exerciseCheckBox"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom|center_horizontal|center_vertical"
+        android:layout_marginBottom="400dp"
+        android:textColor="@color/hype_white"
+        android:text="30+ minutes of exercise" />
+
+    <CheckBox
+        android:id="@+id/meditateCheckBox"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom|center_horizontal|center_vertical"
+        android:layout_marginBottom="450dp"
+        android:textColor="@color/hype_white"
+        android:text="Meditate for 5-10 minutes" />
+
+    <TextView
+        android:id="@+id/progressBarTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/hype_white"
+        android:layout_gravity="bottom|center_horizontal|center_vertical"
+        android:layout_marginBottom="75dp"
+        android:text="Today's Progress" />
+
+    <TextView
+        android:id="@+id/welcomeUserTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="525dp"
+        android:layout_gravity="bottom|center_horizontal|center_vertical"
+        android:textColor="@color/hype_white"
+        android:textSize="25dp"
+        android:text="Welcome back" />
 
 
 </merge>

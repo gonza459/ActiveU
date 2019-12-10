@@ -1,62 +1,68 @@
 package com.example.activeu.view
 
 import android.content.Context
+import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import com.example.activeu.R
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
     fun getStore() = getPreferences(Context.MODE_PRIVATE)
-    //private lateinit var UserViewModel: UserViewModel
-    private var user: String = ""
-    var UserKey = "UserKey"
 
-    private fun getUserName() = intent.extras?.get("username").toString().toLowerCase(Locale.US)
+    private fun getUsername() = intent.extras?.get("username").toString().toLowerCase(Locale.US) // retrieves username of current user from intent extras
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val username = intent.extras?.get("username").toString().trim()
-        UserKey = username
+        welcomeUserTextView.text = "Welcome back, ${getUsername()}"
 
-       // UserViewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
-        //UserViewModel.getUserCount((getUserName())).observe(this,
-         //   androidx.lifecycle.Observer { updateCounter(it) })
-
-        addHealthButton.setOnClickListener{
-            incrementProgressBar()
+        sleepCheckBox.setOnClickListener{
+            if (sleepCheckBox.isChecked)
+                incrementProgressBar()
+            else decrementProgressBar()
         }
 
-        subHealthButton.setOnClickListener{
-            incrementProgressBar()
+        makeBedCheckBox.setOnClickListener{
+            if (makeBedCheckBox.isChecked)
+                incrementProgressBar()
+            else decrementProgressBar()
         }
 
-        addExerciseButton.setOnClickListener{
-            incrementProgressBar()
+        threeMealsCheckBox.setOnClickListener{
+            if (threeMealsCheckBox.isChecked)
+                incrementProgressBar()
+            else decrementProgressBar()
         }
 
-        subExerciseButton.setOnClickListener{
-            incrementProgressBar()
+        planCheckBox.setOnClickListener{
+            if (planCheckBox.isChecked)
+                incrementProgressBar()
+            else decrementProgressBar()
         }
 
-        addOrgButton.setOnClickListener{
-            incrementProgressBar()
+        alarmCheckBox.setOnClickListener{
+            if (alarmCheckBox.isChecked)
+                incrementProgressBar()
+            else decrementProgressBar()
         }
 
-        subOrgButton.setOnClickListener{
-            incrementProgressBar()
+        exerciseCheckBox.setOnClickListener{
+            if (exerciseCheckBox.isChecked)
+                incrementProgressBar()
+            else decrementProgressBar()
         }
 
-        addQuitButton.setOnClickListener{
-            incrementProgressBar()
+        meditateCheckBox.setOnClickListener{
+            if (meditateCheckBox.isChecked)
+                incrementProgressBar()
+            else decrementProgressBar()
         }
 
-        subQuitButton.setOnClickListener{
-            incrementProgressBar()
-        }
     }
 
     private fun incrementProgressBar() {
@@ -65,6 +71,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun decrementProgressBar() {
         progressBar.progress = progressBar.progress - 1
+    }
+
+    private fun isProgressBarComplete() : Boolean {
+        return progressBar.progress == 7
     }
 
 }
