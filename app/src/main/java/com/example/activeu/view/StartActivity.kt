@@ -12,12 +12,12 @@ import kotlinx.android.synthetic.main.activity_start.*
 import java.util.*
 
 class StartActivity : AppCompatActivity() {
-    fun getStore() = getPreferences(Context.MODE_PRIVATE)
-    //private lateinit var UserViewModel: UserViewModel
-    private var user: String = ""
-    var UserKey = "UserKey"
+    // fun getStore() = getPreferences(Context.MODE_PRIVATE)
+    // //private lateinit var UserViewModel: UserViewModel
+    // private var user: String = ""
+    // var UserKey = "UserKey"
 
-    private fun getUserName() = intent.extras?.get("username").toString().toLowerCase(Locale.US)
+    // private fun getUserName() = intent.extras?.get("username").toString().toLowerCase(Locale.US)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +28,7 @@ class StartActivity : AppCompatActivity() {
             intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
+
         signup_button.setOnClickListener{
 
             intent = Intent(this, SignupActivity::class.java)

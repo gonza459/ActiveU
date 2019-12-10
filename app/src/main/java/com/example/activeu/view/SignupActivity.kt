@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.text.Editable
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import com.example.activeu.R
 import com.example.activeu.model.User
 import com.example.activeu.viewmodel.UserViewModel
@@ -26,9 +27,7 @@ class SignupActivity : AppCompatActivity() {
 
         UsernameField.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {}
-
             override fun beforeTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-
             override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {}
         })
 
@@ -38,10 +37,9 @@ class SignupActivity : AppCompatActivity() {
                 androidx.lifecycle.Observer { getPass(it) })
 
             Log.d("user", "password: ${password}")
-            if (password == null) {
-                errorMessage.text = "Username taken"
-            } else if (password == Password.text.toString()) {
-                errorMessageSU.text = "This account already exists"
+            if (password == "") {
+                var errorMessage = TextView(this)
+                errorMessage.text = "Username not valid"
             } else {
                 userViewModel.setUserPassword(
                     Username.text.toString(),
